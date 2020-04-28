@@ -35,7 +35,7 @@ const TodoApp = () => {
         direction="column"
         justify="center"
         alignItems="center"
-        style={{ paddingBottom: 70 }}
+        style={{ paddingBottom: 40, paddingLeft: 10, paddingRight: 10 }}
       >
         <Grid item>
           <Typography className={classes.heading} variant="h3">
