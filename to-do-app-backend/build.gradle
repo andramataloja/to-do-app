@@ -27,6 +27,17 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	implementation group: "com.twilio.sdk", name: "twilio", version: "7.51.0"
+	compile group: 'org.springframework', name: 'spring-context-support', version: '5.2.6.RELEASE'
+	compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.2'
+	compile group: 'org.quartz-scheduler', name: 'quartz-jobs', version: '2.3.2'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-quartz', version: '2.3.0.RELEASE'
+	implementation 'junit:junit:4.12'
+	testCompile group: 'org.dbunit', name: 'dbunit', version: '2.7.0'
+	testCompile group: 'org.assertj', name: 'assertj-core', version: '3.16.1'
+
+
 }
 
 test {

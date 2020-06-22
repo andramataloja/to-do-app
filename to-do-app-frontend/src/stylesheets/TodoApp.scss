@@ -15,7 +15,15 @@ body {
     #5ffbf1
   );
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
   margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100%;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

@@ -1,11 +1,18 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { TextField, Grid, Fab } from "@material-ui/core";
+import { TextField, Grid, Fab, makeStyles } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import { useDispatch } from "react-redux";
 import { fetchTodos } from "../redux/actions";
 
+const useStyles = makeStyles({
+  form: {
+    minWidth: "240px",
+  },
+});
+
 const AddToDo = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const [todo, setTodo] = useState({
     title: "",
@@ -24,24 +31,24 @@ const AddToDo = () => {
     const data = {
       title: todo.title,
       description: todo.description,
+      createdAt: new Date().toISOString(),
     };
-    {
-      todo.title &&
-        axios
-          .post("/api/todos", data)
-          .then(() => {
-            clearFields();
-            axios
-              .get("/api/todos")
-              .then((res) => {
-                res.data.length !== 0
-                  ? dispatch(fetchTodos(res.data))
-                  : dispatch(fetchTodos([]));
-              })
-              .catch((err) => console.log(err));
-          })
-          .catch((err) => console.log(err));
-    }
+
+    todo.title &&
+      axios
+        .post("/api/todos", data)
+        .then(() => {
+          clearFields();
+          axios
+            .get("/api/todos")
+            .then((res) => {
+              res.data.length !== 0
+                ? dispatch(fetchTodos(res.data))
+                : dispatch(fetchTodos([]));
+            })
+            .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
   };
 
   return (
@@ -55,6 +62,7 @@ const AddToDo = () => {
             margin="dense"
             value={todo.title}
             onChange={handleChange("title")}
+            className={classes.form}
           />
         </Grid>
         <Grid item>
@@ -66,6 +74,7 @@ const AddToDo = () => {
             variant="outlined"
             value={todo.description}
             onChange={handleChange("description")}
+            className={classes.form}
           />
         </Grid>
         <Grid

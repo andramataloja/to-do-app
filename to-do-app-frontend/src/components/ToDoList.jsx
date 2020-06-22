@@ -61,7 +61,7 @@ const ToDoList = () => {
           : dispatch(fetchTodos([]))
       )
       .catch((err) => console.log(err));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

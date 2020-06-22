@@ -33,6 +33,7 @@ const EditToDo = (props) => {
       title: values.title,
       description: values.description,
       completed: props.todo.completed,
+      createdAt: new Date().toISOString(),
     };
 
     axios
@@ -65,26 +66,24 @@ const EditToDo = (props) => {
             <FormControl variant="outlined" margin="dense">
               <InputLabel htmlFor="outlined-adornment-title">Title</InputLabel>
               <OutlinedInput
-                id="outlined-adornment-amount"
+                id="outlined-adornment-title"
                 value={values.title}
                 onChange={handleChange("title")}
                 label="Title"
               />
             </FormControl>
-            {values.description && (
-              <FormControl variant="outlined" margin="dense">
-                <InputLabel htmlFor="component-outlined">
-                  Description
-                </InputLabel>
-                <OutlinedInput
-                  id="component-outlined"
-                  value={values.description}
-                  onChange={handleChange("description")}
-                  label="Description"
-                  name="description"
-                />
-              </FormControl>
-            )}
+
+            <FormControl variant="outlined" margin="dense">
+              <InputLabel htmlFor="outlined-adornment-description">
+                Description
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment-description"
+                value={values.description}
+                onChange={handleChange("description")}
+                label="Description"
+              />
+            </FormControl>
           </FormGroup>
         </DialogContent>
         <DialogActions>

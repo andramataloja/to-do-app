@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     height: "100%",
     width: "50%",
     marginTop: "40px",
+    marginBottom: "40px",
   },
   heading: {
     color: "white",
@@ -23,6 +24,15 @@ const useStyles = makeStyles({
   },
   list: {
     width: "100%",
+  },
+  listBase: {
+    paddingBottom: "40px",
+    paddingLeft: "10px",
+    paddingRight: "10px",
+  },
+  addBase: {
+    padding: "20px",
+    marginBottom: "40px",
   },
 });
 
@@ -35,14 +45,14 @@ const TodoApp = () => {
         direction="column"
         justify="center"
         alignItems="center"
-        style={{ paddingBottom: 40, paddingLeft: 10, paddingRight: 10 }}
+        className={classes.listBase}
       >
         <Grid item>
           <Typography className={classes.heading} variant="h3">
             To Do List
           </Typography>
         </Grid>
-        <Paper style={{ padding: 20, marginBottom: 40 }}>
+        <Paper className={classes.addBase}>
           <Grid item>
             <AddToDo />
           </Grid>
