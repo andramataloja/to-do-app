@@ -1,4 +1,4 @@
-package com.todoapp.todoapp.model;
+package com.todoapp.todoapp.domain;
 
 import javax.persistence.*;
 
@@ -14,15 +14,18 @@ public class Todo {
     private String description;
     @Column(name = "completed")
     private boolean completed;
+    @Column(name = "createdAt")
+    private String createdAt;
 
     public Todo(){
 
     }
 
-    public Todo(String title, String description, boolean completed ){
+    public Todo(String title, String description, boolean completed, String createdAt){
         this.title=title;
         this.description=description;
         this.completed=completed;
+        this.createdAt = createdAt;
     }
 
     public long getId() {
@@ -55,5 +58,11 @@ public class Todo {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+    public String getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 }
